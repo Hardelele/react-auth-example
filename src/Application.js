@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import './css/application.css';
-import {Authorization} from "./components/Authorization";
-import {Profile} from "./components/Profile";
+import Authorization from "./components/Authorization";
+import Profile from "./components/Profile";
 
 function Application() {
   return (
