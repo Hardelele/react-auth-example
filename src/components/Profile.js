@@ -1,13 +1,20 @@
 import React from "react";
 import { Redirect } from 'react-router-dom';
+import {connect} from "react-redux";
 
-export const Profile = () => {
-
-    const isAuthorized = false;
+const Profile = ({isAuth}) => {
 
     return (
         <div className="profile-container">
-            {!isAuthorized && <Redirect to='/' />}
+            {!isAuth && <Redirect to="/"/>}
         </div>
     );
 };
+
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.isAuth,
+    }
+};
+
+export default connect(mapStateToProps, null)(Profile)
