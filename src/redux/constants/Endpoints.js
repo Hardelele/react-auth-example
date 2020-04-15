@@ -1,6 +1,6 @@
 const BASE_ADDRESS = `http://localhost:`;
-const PORT = `8080`;
-const API_VERSION = `/api/v1`;
+const PORT = `9001`;
+const API_VERSION = ``;
 
 export const BASE_ENDPOINT = BASE_ADDRESS + PORT + API_VERSION;
 
