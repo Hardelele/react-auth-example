@@ -1,19 +1,39 @@
-import React from "react";
+import React, {Component} from "react";
 import { Redirect } from 'react-router-dom';
+import {connect} from "react-redux";
+import {postAuth, postRegister} from "../redux/actions/TokensActions";
 
-export const Authorization = () => {
+class Authorization extends Component {
 
-    const isAuthorized = false;
+    state = {};
 
-    const authorizationHandler = (event) => {
-        const currentUrl = window.location.href;
-        window.location.replace(currentUrl + "profile");
-    };
+    render() {
 
-    return (
-      <div className="authorization-container">
-          {isAuthorized && <Redirect to='/profile' />}
-          <button onClick={authorizationHandler}>Auth</button>
-      </div>
-  );
+        const authorizationHandler = (event) => {
+            const authInfo = {
+                username: "123", password: "123"
+            };
+            this.props.postAuth(authInfo);
+        };
+
+        return (
+            <div className="authorization-container">
+                {this.props.isAuth && <Redirect to="/profile"/>}
+                <button onClick={authorizationHandler}>Auth</button>
+            </div>
+        );
+    }
+}
+
+const mapDispatchToProps = {
+    postAuth,
+    postRegister
 };
+
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.isAuth,
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Authorization)
