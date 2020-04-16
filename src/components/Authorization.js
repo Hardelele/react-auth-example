@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { Redirect } from 'react-router-dom';
 import {connect} from "react-redux";
 import {postAuth, postRegister} from "../redux/actions/TokensActions";
+import {getWhoAmI} from "../redux/actions/UserInfoActions";
 
 class Authorization extends Component {
 
@@ -27,7 +28,6 @@ class Authorization extends Component {
 
 const mapDispatchToProps = {
     postAuth,
-    postRegister
 };
 
 const mapStateToProps = state => {

@@ -1,7 +1,10 @@
 import {AUTH_ACTION, INVALIDATE_AUTH_ACTION, REGISTER_ACTION} from "../constants/Actions";
 
 const initialState = {
-    tokens: [],
+    tokens: {
+        access_token: "",
+        refresh_token: "",
+    },
     isAuth: false
 };
 

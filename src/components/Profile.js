@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import {connect} from "react-redux";
 
 const Profile = ({isAuth}) => {
-
     return (
         <div className="profile-container">
             {!isAuth && <Redirect to="/"/>}
